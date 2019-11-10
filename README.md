@@ -8,6 +8,7 @@
 ## Application Information
 
 ## External Web Service URL
+http://rev.dhdiagram.net
 http://rev.dhdiagram.net/admin
 localhost:8000 -> rev.dhdiagram.net
 
