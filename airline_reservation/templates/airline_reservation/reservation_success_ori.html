@@ -1,0 +1,33 @@
+{% block title %}
+*** 예약완료 ***
+<br>
+<br>
+<br>
+{% endblock %}
+
+{% block content %}
+편도/왕복 : {{ form.one_or_round }}<br>    
+출발지/도착지 : {{ form.start_end }}<br>
+가는날/오는날 : {{ form.fine_day }} - {{ form.comming_day }}<br>
+탑승객구분(성인) : {{form.passenger_classification_adult}}<br>
+탑승객구분(소아) : {{form.passenger_classification_infant}}<br>
+탑승객구분(유아) : {{form.passenger_classification_child}}<br>
+탑승자 이름 : {{ form.passenger_name }}<br>
+탑승자 연락처 : {{ form.contect }}<br>
+항공권 번호 : {{ form.ticket_number }}<br>
+예약번호 : {{ form.reservation_number }}<br>
+좌석등급 : {{ form.seat_level }}<br>  
+항공편명 : {{ form.flight_name }}<br>
+항공기출발시간/항공기도착시간 : {{ form.departure_time }} - {{ form.arrival_time }}<br>
+회원/비회원 : {{ form.member_table }}<br>
+항공편가격 : {{ form.price }}<br>
+팁승인원 : {{ form.passenger_number }}<br>
+항공권예약날짜 : {{ form.ticket_reservation_date }}<br>
+비행시간 : {{ form.flight_time }}<br>
+수화물 : {{ form.luggage }}<br>
+운임 : {{ form.fare }}<br>
+결제수단 : {{ form.method_of_payment }}<br>
+결제가격 : {{ form.payment }}<br>
+결제번호 : {{ form.billing_number }}<br>
+<br>
+{% endblock %}

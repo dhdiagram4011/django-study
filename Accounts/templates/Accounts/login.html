@@ -1,0 +1,13 @@
+{% block content %}
+<form action ="" method="post" class="mt-5">
+    <div class="alert alert-success">로그인 페이지 입니다.</div>
+    <br>
+    <br>
+    <strong>가입시 입력하신 이메일과 패스워드를 정확히 입력하여 주세요</strong><br>
+    {% csrf_token %}
+    <br>
+    이메일 | {{ form.email }} - 패스워드 | {{ form.password }}<br>
+    <br>
+    <a class="btn btn-lg btn-info" href="{% url 'airline_reservation:reservationStart' %}">로그인</a>
+</form>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% block content %}
+<form action="/reservation_start/cargo/" method="get">
+    <div class="alert alert-primary">항공편예약 - 여정</div>
+    <br>
+    <br>
+    스카이페스 회원을 위한 항공권 예약 페이지 입니다.<br>
+    비회원도 예약이 가능하며 항공 운항 스케쥴은 항공사 및 공항 사정에 따라 변경될 수 있습니다.<br>
+    각 공항별 운항 스케쥴 및 변동사항은 한국공항공사로 문의바랍니다.<br>
+    <br>
+    | 각 공항 연락처 |<br>
+    김포공항 : 1661-2626<br>
+    제주공항 : 1661-2626<br>
+    한국공항공사 :1661-2626<br>
+    <br>
+    <br>
+    <br>
+    {% csrf_token %}
+    편도/왕복 | {{ form.one_or_round }}<br>
+    <br>
+    <!--for auto select-->
+    <!--여정 | <select name="jump" onchange="location.href=this.value">
+    <option value="{% url 'airline_cousrse_search:GMP2PUSReservation' %}">김포(GMP)-부산(PUS)</option>
+    <option value="{% url 'airline_cousrse_search:GMP2CJUReservation' %}">김포(GMP)-제주(CJU)</option>
+    <option value="{% url 'airline_cousrse_search:PUS2CJUReservation' %}">부산(PUS)-제주(CJU)</option>
+    <option value="{% url 'airline_cousrse_search:PUS2GMPReservation' %}">부산(PUS)-김포(GMP)</option>
+    <option value="{% url 'airline_cousrse_search:CJU2GMPReservation' %}">제주(CJU)-김포(GMP)</option>
+    <option value="{% url 'airline_cousrse_search:CJU2PUSReservation' %}">제주(CJU)-부산(PUS)</option>-->
+    여정구간 | {{ form.start_end }}<br>  <!--여정구간이 같으면 해당 구간에 대한 스케쥴 화면 출력-->
+    </select>
+    <br>
+    <br>
+    가는날(출발일) | {{ form.fine_day }}<br>
+    <br>
+    오는날(출발일) | {{ form.comming_day }}<br>
+    <br>
+    성인(인원수) | {{ form.passenger_classification_adult }}<br>
+    <br>
+    소아(인원수) | {{ form.passenger_classification_infant }}<br>
+    <br>
+    아동(인원수) | {{ form.passenger_classification_child }}<br>
+    <br>
+    <br>
+    <input type="submit" value="항공권 조회하기">
+    </form>
+{% endblock %}
+
+

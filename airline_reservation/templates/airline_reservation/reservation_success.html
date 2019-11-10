@@ -1,0 +1,15 @@
+{% block content %}
+{% for object in object_list %}
+여정 | 제주(CJU) - 김포(GMP) | 예약완료
+<br>
+<br>
+항공기 출발시간 : {{ object.departure_time }}<br>
+항공기 도착시간 : {{ object.arrival_time }}<br>
+항공기 비행구간 : {{ object.flight_section }}<br>
+항공기 편명 : {{ object.flight_number }}<br>
+특별운임 : {{ object.special_fare }}<br>
+정상운임 : {{ object.normal_fare }}<br>
+<br>
+{% endfor %}
+{% endblock %}
+</form>
