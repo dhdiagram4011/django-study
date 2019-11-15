@@ -27,7 +27,8 @@ SECRET_KEY = 'g+wpb&0_90^t*(7i-08$f-q5jo8@83^^-12l*94(hq$#j81@1*'
 DEBUG = False
 ALLOWED_HOSTS = ['*','dhdiagram.net']
 
-DATABASES=['default'].update(dj_database_url.config(conn_max_age=500))
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Application definition
 
