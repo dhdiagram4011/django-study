@@ -1,5 +1,5 @@
 {% block content %}
-<form action="/reservation_start/cargo/" method="get">
+<form action="" method="get">
     <div class="alert alert-primary">항공편예약 - 여정</div>
     <br>
     <br>
@@ -40,7 +40,7 @@
     아동(인원수) | {{ form.passenger_classification_child }}<br>
     <br>
     <br>
-    <input type="submit" value="항공권 조회하기">
+    <a href="{% url 'airline_cousrse_search:CargoAll' %}"><button type="submit" class="save btn-default">항공권 조회하기</button></a>
     </form>
 {% endblock %}
 
