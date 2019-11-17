@@ -11,6 +11,7 @@ from .forms import *
 from django.http import HttpResponse
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from airline_cousrse_search.models import *
 
 #구간선택에 따른 페이지 라우팅
 #제주 - 김포 선택 : airline_cousrse_search/flight_list_cju2gmp.html
@@ -48,12 +49,21 @@ def ReservationStartList(request):
 
 
 def ReservationSuccessList(request):
-    if request.method == 'POST':
-        form = ReservationSuccessForm(request.POST)
-        if form.is_valid():
-            return render(request, 'airline_reservation/reservation_success.html')
-        else:
-            form = ReservationStartForm()
-        return render(request, 'airline_reservation/reservation_start.html', {'form':form})
+    cargoAlls = cargoAll.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:1]
+    return render(request, 'airline_reservation/reservation_success.html', {'CargoAlls':CargoAlls})
+
+
+#    def serverlist_result(request):
+#        serverlists = Serverlist.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:1]
+#        return render(request, 'testapp/serverlist_result.html', {'serverlists': serverlists})
+
+#def ReservationSuccessList(request):
+#    if request.method == 'POST':
+#        form = ReservationSuccessForm(request.POST)
+#        if form.is_valid():
+#            return render(request, 'airline_reservation/reservation_success.html')
+#        else:
+#            form = ReservationStartForm()
+#        return render(request, 'airline_reservation/reservation_start.html', {'form':form})
         
 

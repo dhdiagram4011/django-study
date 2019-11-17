@@ -13,9 +13,11 @@
 <strong>특별운임 : {{ object.cargo_special_fare_test  }}<br></strong>
 <strong>정상운임 : {{ object.cargo_normal_fare_test }}<br></strong>
 <br>
-<form action="/reservation/reservationSuccess/" method="post">
-<input type="submit" value="예악하기">
-<!--<a class="btn btn-lg btn-info" href="{% url 'airline_cousrse_search:CJU2GMPReservation' %}"><strong>항공권 조회하기</strong></a>-->
+<!--<form action="/reservation/reservationSuccess/" method="post">-->
+    <a href="{% url 'airline_cousrse_search:' %}"><button type="submit" class="save btn-default">예약하기</button></a>
+
+<!--<input type="submit" value="예악하기"-->
+    <!--<a class="btn btn-lg btn-info" href="{% url 'airline_cousrse_search:CJU2GMPReservation' %}"><strong>항공권 조회하기</strong></a>-->
 <!--<input type="submit" name="김포(GMP)-제주(CJU)" value="검색">-->
 </form>
 <!--<a class="btn btn-lg btn-info" href="{% url 'airline_reservation:reservationSuccess' %}"><strong>선택CArr한 항공권 예약하기</strong></a>-->
