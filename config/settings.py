@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+
+import DATABASES as DATABASES
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -27,8 +29,8 @@ SECRET_KEY = 'g+wpb&0_90^t*(7i-08$f-q5jo8@83^^-12l*94(hq$#j81@1*'
 DEBUG = False
 ALLOWED_HOSTS = ['*','dhdiagram.net']
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+#db_from_env = dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(db_from_env)
 
 # Application definition
 
