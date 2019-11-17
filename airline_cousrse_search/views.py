@@ -53,6 +53,11 @@ def cargo(request):
     #return render(request, 'airline_course_search/all_full_time.html', {'object':object})
 
 
+#def cargoResult(request):
+#    cargoResult = cargoAll.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:1]
+#    return render(request, 'testapp/serverlist_result.html', {'cargoResults':cargoResults})
+
+
 
 #class name
 
