@@ -27,3 +27,14 @@ https://hiseon.me/linux/ubuntu/ubuntu-kubernetes-install/
 https://github.com/weaveworks/weave/issues/2789
 https://hiseon.me/linux/ubuntu/install-docker/
 
+
+###
+#kubectl run jenkins --image=launcher.gcr.io/google/jenkins2
+#kubectl get pods
+#kubectl get svc
+#kubectl expose deployment jenkins-batch --type=LoadBalancer --name=jenkins-batch --port=8080
+
+#python3 내장
+#kubectl run jenkins01 --image=tgamauf/jenkins-python3
+#kubectl delete pods deployment jenkins-pod
+
