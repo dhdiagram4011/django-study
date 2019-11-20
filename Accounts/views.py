@@ -26,16 +26,20 @@ def AirlineLogin(request):
     return render(request, 'Accounts/login.html', {'form':form})
 
 
-#class RegisterSuccess(ListView):
+#def RegisterSuccess(ListView):
 #    model = Register
 #    template_name = 'Accounts/register_success.html'
 
 
+#def RegisterSuccess(request):
+#    if request.method == 'GET':
+#        form = RegisterForm(request.GET)
+#        return render(request, 'Accounts/register_success.html', {'Register':Register})
+#    else:
+#        form = RegisterForm()
+#    return render(request, 'Accounts/register.html', {'form':form})
+
+
 def RegisterSuccess(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        return render(request, 'Accounts/register_success.html', {'object':object})
-    else:
-        form = RegisterForm()
-    return render(request, 'Accounts/register.html', {'form':form})    
-  
+    register_lists = Register.objects.all()
+    return render(request, 'Accounts/register_success.html', {'register_lists':register_lists})

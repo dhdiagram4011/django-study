@@ -9,7 +9,6 @@ from .models import *
 from .forms import *
 
 
-
 class AgreementList(ListView):
     model = Agreement
     template_name = 'register/agreement.html'

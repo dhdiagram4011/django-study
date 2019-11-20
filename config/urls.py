@@ -18,10 +18,11 @@ from django.urls import path, include, re_path
 from django.views.static import serve
 from django.conf import settings
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('Accounts.urls')),
-    path('/',include('airline_reservation.urls')),
+    path('/',include('Accounts.urls')),
     path('reservation/',include('airline_reservation.urls')),
     path('reservation_start/', include('airline_cousrse_search.urls')),
     path('agreement/', include('register.urls')),

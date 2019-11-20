@@ -7,5 +7,5 @@ urlpatterns = [
     path('register/', RegisterStart, name='RegisterStart'),
     path('login/', AirlineLogin, name='logAirlineLogin'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('register_success/',RegisterSuccess, name='RegisterSuccess')
+    path('register_success/',RegisterSuccess, name='RegisterSuccess'),
 ]
