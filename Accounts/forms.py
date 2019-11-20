@@ -14,6 +14,8 @@ class RegisterForm(forms.ModelForm):
     company_name = forms.CharField(label='company_name')
     company_depart = forms.CharField(label='company_depart')
     company_spot = forms.CharField(label='company_spot')
+    created_date = models.DateTimeField(label='created_date')
+    published_date = models.DateTimeField(label='published_date')
 
     def clean_repeat_password(self):
         cd = self.cleaned_data
@@ -25,7 +27,7 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['name','birth','email','main_address','sub_address','cellphone','company_name','company_depart','company_spot','password','repeat_password']
+        fields = ['name','birth','email','main_address','sub_address','cellphone','company_name','company_depart','company_spot','password','repeat_password','created_date','published_date']
 
 
 class LoginForm(forms.ModelForm):

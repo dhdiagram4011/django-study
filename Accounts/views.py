@@ -34,13 +34,14 @@ def RegisterStart(request):
         company_name = request.POST.get('company_name',None)
         company_depart = request.POST.get('company_depart',None)
         company_spot = request.POST.get('company_spot',None)
-        create_date = request.POST.get('created_date',None)
+        created_date = request.POST.get('created_date',None)
         published_date = request.POST.get('published_date',None)
     return redirect('RegisterSuccess')
 
 
 def RegisterSuccess(request):
     register_lists = Register.objects.filter(published_date__lte = timezone.now()).order_by('-published_date')[:1]
+    #register_lists = Register.objects.all()
     return render(request, 'Accounts/register_success.html', {'register_lists':register_lists})
 
 
