@@ -41,5 +41,5 @@ def AirlineLogin(request):
 
 
 def RegisterSuccess(request):
-    register_lists = Register.objects.all()
+    register_lists = Register.objects.filter(published_date__lte = timezone.now()).order_by('-published_date')[:1]
     return render(request, 'Accounts/register_success.html', {'register_lists':register_lists})
