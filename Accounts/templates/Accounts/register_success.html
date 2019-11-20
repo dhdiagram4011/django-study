@@ -1,21 +1,22 @@
-회원가입이 완료되었습니다. 회원이 되신것을 진심으로 축하드립니다!!!!! *****
+회원가입이 완료되었습니다. 회원이 되신것을 진심으로 축하드립니다 *****
 <br>
 <br>
-<strong>환영합니다! {{ register_list.name }} 님의 가입정보는 아래와 같습니다.</strong>
+<strong>환영합니다! {{ register.name }} 님의 가입정보는 아래와 같습니다.</strong>
 <br>
 <br>
-
-{% for register_list in register_lists %}
-    고객명 | {{ register_list.name }}<br>
-    생년월일 | {{ register_list.birth }}<br>
-    이메일 | {{ register_list.email }}<br>
-    주소(01) | {{ register_list.main_address }}<br>
-    주소(02) {{ register_list.sub_address }}<br>
-    연락처 |{{ register_list.cellphone }}<br>
-    소속 | {{ register_list.company_name }}<br>
-    부서 | {{ register_list.company_depart }}<br>
-    직급 | {{ register_list.company_spot }}<br>
+{% block content %}
+    고객명 | {{ register.name }}<br>
+    생년월일 | {{ register.birth }}<br>
+    이메일 | {{ register.email }}<br>
+    주소(01) | {{ register.main_address }}<br>
+    주소(02) {{ register.sub_address }}<br>
+    연락처 |{{ register.cellphone }}<br>
+    소속 | {{ register.company_name }}<br>
+    부서 | {{ register.company_depart }}<br>
+    직급 | {{ register.company_spot }}<br>
+    생성시간 | {{ register.published_date }}<br>
+    가입시간 | {{ register.created_date }}<br>
 <br>
 <br>
-{% endfor %}
+{% endblock %}
 

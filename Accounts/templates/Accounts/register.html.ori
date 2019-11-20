@@ -1,10 +1,12 @@
 {% block content %}
+<input action="" method="POST">{% csrf_token %}
     <div class="alert alert-primary">회원가입을 위하여 아래의 정보들을 입력하여 주세요.</div>
     <br>
     <br>
     <strong>이 페이지는 한국에 거주하는 내국인을 위한 사이트입니다.<br>
     한국거주 외국인 또는 해외거주 내국인께서는 국가/언어 설정을 변경하시어 알맞은 사이트로 이동하시기 바랍니다.</strong><br>
-    <form method="POST">{% csrf_token %}
+    
+    {% csrf_token %}
     <br>
     이름 | {{ form.name }}<br>
     <br>
@@ -28,7 +30,6 @@
     <br>
     직위 | {{ form.company_spot }}<br>
     <br>
-    <!--<a class="btn btn-lg btn-info" href="{% url 'Accounts:RegisterSuccess' %}">가입완료</a>-->
-        <a href="{% url 'Accounts:RegisterSuccess' %}"><input type="submit" class="button"></a>
+    <a class="btn btn-lg btn-info" href="{% url 'Accounts:RegisterSuccess' %}">가입완료</a>
 </form>
 {% endblock %}

@@ -5,6 +5,8 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.views.generic.detail import DetailView
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password, check_password
 
 ##name = models.CharField(max_length=200)
 ##birth = models.DateField('생년월일')
@@ -40,8 +42,8 @@ def RegisterStart(request):
 
 
 def RegisterSuccess(request):
-    register_lists = Register.objects.filter(published_date__lte = timezone.now()).order_by('-published_date')[:1]
-    #register_lists = Register.objects.all()
+    #register_lists = Register.objects.filter(published_date__lte = timezone.now()).order_by('-published_date')
+    register_lists = Register.objects.all()
     return render(request, 'Accounts/register_success.html', {'register_lists':register_lists})
 
 

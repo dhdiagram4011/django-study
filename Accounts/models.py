@@ -13,7 +13,7 @@ class Register(models.Model):
     company_depart = models.CharField(max_length=200)
     company_spot = models.CharField(max_length=200)
     created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
+    published_date = models.DateTimeField(default=timezone.now)
 
     def publish(self):
         self.published_date = timezone.now()
