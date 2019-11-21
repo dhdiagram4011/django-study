@@ -144,13 +144,12 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL='/Agreement/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
-###os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'rlaehgud21764011@gmail.com'
-EMAIL_HOST_PASSWORD = '08425256@kdh'
-EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'rlaehgud21764011@gmail.com' # ex) bum752@gmail.com
+EMAIL_HOST_PASSWORD = '08425256@kdh' # ex) P@ssw0rd
+SERVER_EMAIL = 'rlaehgud21764011@gmail.com' # ex) bum752@gmail.com
+DEFAULT_FROM_MAIL = 'rlaehgud21764011' # ex) bum752
+

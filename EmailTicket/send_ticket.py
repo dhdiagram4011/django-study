@@ -3,13 +3,15 @@ from django.core import mail
 from django.conf import settings
 from django.core.mail import send_mail
 
-send_mail(
-    'Subject here',
-    'Here is messages',
-    'rlaehgud21764011@gmail.com',
-    '[dohyoung.kim@rockplace.co.kr]',
-    fail_silently=False,
-)
+###>>> from django.core.mail import EmailMessage
+###>>> email = EmailMessage('Django Mail','Django Test',to=['dohyoung.kim@rockplace.co.kr']
+###>>> email.send()
+###1
+
+
+
+
+
 
 
 
