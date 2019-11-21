@@ -10,10 +10,6 @@ from rest_framework.views import APIView
 from django.urls import reverse
 import reverse
 
-#from django.core.mail import EmailMessage
-#email = EmailMessage('Django Mail','Django Test',to=['dohyoung.kim@rockplace.co.kr'])
-#email.send()
-
 
 class send_ticket(APIView):
     def post(self, request, format=None):
