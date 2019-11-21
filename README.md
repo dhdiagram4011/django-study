@@ -47,6 +47,9 @@ http://localhost:8000/ticket/b_pus2gmp/ -> 부산 - 김포구간<br>
 <br>
 <br>
 6. 예약 항공권 정보 이메일 발송 페이지
-http://localhost:8000/e_ticket/customer_ticket/
+http://localhost:8000/e_ticket/send_ticket/
+<br>
+<br>
+
 
 
