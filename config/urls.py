@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.static import serve
 from django.conf import settings
-
+from django.urls import reverse
+from django.urls import resolvers
+from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,21 +29,5 @@ urlpatterns = [
     path('reservation_start/', include('airline_cousrse_search.urls')),
     path('agreement/', include('register.urls')),
     path('ticket/', include('Ticketing.urls')),
+    path('e_ticket/',include('EmailTicket.urls')),
 ]
-
-##Sampels
-#urlpatterns  = [
-#    path('',views.join, name='join'),
-#   path('',views.join_result, name='join_result'),
-#    path('',views.translate, name='translate'),
-#    path('',views.translate_result, name='translate_result'),
-#    path('',views.selecttest, name='selecttest'),
-#    path('',views.selecttest_result, name='selecttest_result'),
-#    path('',views.main, name='main'),
-#    path('',views.radiotest, name='radiotest'),
-#    path('',views.login, name='login'),
-#    path('',views.login_success, name='login_success'),
-#    path('',views.logout, name='logout'),
-#    path('',views.serverlist, name='serverlist'),
-#]
-
