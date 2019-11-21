@@ -15,4 +15,5 @@ urlpatterns = [
     path('agreement/', include('register.urls')),
     path('ticket/', include('Ticketing.urls')),
     path('e_ticket/',include('EmailTicket.urls')),
+    path('rev_post/',include('rev_post.urls')),
 ]
