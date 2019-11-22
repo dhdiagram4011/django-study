@@ -1,7 +1,7 @@
 {% block content %}
-<form action="" method="POST">
+<form action="/rev_post/result" method="POST">
 {% csrf_token %}
 {{ form.as_p }}
-<button type="submit" class="save btn-default">전송하기</button>
+<input type="submit" value="전송하기">
 </form>
 {% endblock %}
