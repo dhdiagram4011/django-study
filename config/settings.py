@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'register',
     'Ticketing',
     'airline_cousrse_search',
+    'rev_post',
 ]
 
 MIDDLEWARE = [
