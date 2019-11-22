@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from .models import *
+from .forms import *
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password, check_password
-#import urllib.requests
 import requests
-from .forms import *
 from django.http import HttpResponse
 from django.shortcuts import redirect
+from django.utils import timezone
+import urllib.request
+from django import forms
+
 
 ### input_page
 
@@ -27,11 +30,12 @@ def rev_post_list(request):
         email = request.POST.get('email',None)
         created_date = request.POST.get('created_date',None)
         published_date = request.POST.get('published_date',None)
-    return redirect('rev_post_result')
+    return redirect ('rev_post_result')
 
 
 def rev_post_result(request):
     rev_post_lists = rev_post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:1]
+    #rev_post_lists = rev_post.objects.all()
     return render(request, 'rev_post/main_result.html', {'rev_post_lists':rev_post_lists})
 
 
