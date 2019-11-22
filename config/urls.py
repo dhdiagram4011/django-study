@@ -6,6 +6,10 @@ from django.views.static import serve
 #from django.urls import resolvers
 #from django.urls import re_path
 
+
+admin.site.site_header = 'Reservation Ticketing System'
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('Accounts.urls')),
@@ -15,5 +19,5 @@ urlpatterns = [
     path('agreement/', include('register.urls')),
     path('ticket/', include('Ticketing.urls')),
 #    path('e_ticket/',include('EmailTicket.urls')),
-#    path('rev_post/',include('rev_post.urls')),
+    path('rev_post/',include('rev_post.urls')),
 ]

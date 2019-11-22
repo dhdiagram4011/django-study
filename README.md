@@ -50,6 +50,7 @@ http://localhost:8000/ticket/b_pus2gmp/ -> 부산 - 김포구간<br>
 http://localhost:8000/e_ticket/send_ticket/
 <br>
 <br>
-
+7. 입력값 전송 정보 테스트
+http://localhost:8000/rev_post/main/
 
 
