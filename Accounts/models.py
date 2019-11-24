@@ -14,7 +14,7 @@ class Register(models.Model):
     company_name = models.CharField(max_length=200)
     company_depart = models.CharField(max_length=200)
     company_spot = models.CharField(max_length=200)
-    password = models.IntegerField(max_lenght=200)
+    password = models.IntegerField(max_length=200)
     repeat_password = models.CharField(max_length=200)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
