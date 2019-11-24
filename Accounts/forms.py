@@ -3,8 +3,8 @@ from django import forms
 from .models import *
 
 class RegisterForm(forms.ModelForm):
-    #password = forms.CharField(label='패스워드', widget=forms.PasswordInput)
-    #repeat_password = forms.CharField(label='패스워드확인', widget=forms.PasswordInput)
+    password = forms.CharField(label='패스워드', widget=forms.PasswordInput)
+    repeat_password = forms.CharField(label='패스워드확인', widget=forms.PasswordInput)
     #name = forms.CharField(label='이름')
     #birth = forms.DateField(label='생년월일')
     #email = forms.EmailField(label='이메일')
