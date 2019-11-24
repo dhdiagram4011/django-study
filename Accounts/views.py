@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password, check_password
 
+# 회원가입시 입력 리스트
 ##name = models.CharField(max_length=200)
 ##birth = models.DateField('생년월일')
 ##email = models.EmailField(max_length=200)

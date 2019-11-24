@@ -1,7 +1,8 @@
+
 {% for rev_post_list in rev_post_lists %}
-    {{ rev_post_list.id }}<br>
-    {{ rev_post_list.email }}<br>
-    {{ rev_post_list.created_date }}<br>
-    {{ rev_post_list.published_date }}<br>
+ID | {{ rev_post_list.id }} - EMAIL : {{ rev_post_list.email }}<br>
+<br>
+| 계정생성일
+{{ rev_post_list.created_date }} - {{ rev_post_list.published_date }}<br>
 {% endfor %}
 

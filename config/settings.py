@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-#import DATABASES as DATABASES
+#import DATABASES as DATABASESdjango.core.exceptions.ImproperlyConfigured: WSGI application 'config.wsgi.application' could not be loaded; Error importing module.
 #import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
