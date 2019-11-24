@@ -34,8 +34,8 @@ def rev_post_list(request):
 
 
 def rev_post_result(request):
-    rev_post_lists = rev_post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:1]
-    #rev_post_lists = rev_post.objects.all()
+    #rev_post_lists = rev_post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:1]
+    rev_post_lists = rev_post.objects.all()
     return render(request, 'rev_post/main_result.html', {'rev_post_lists':rev_post_lists})
 
 
