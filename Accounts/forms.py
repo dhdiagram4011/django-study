@@ -5,17 +5,17 @@ from .models import *
 class RegisterForm(forms.ModelForm):
     password = forms.CharField(label='passowrd', widget=forms.PasswordInput)
     repeat_password = forms.CharField(label='repeat_passowrd', widget=forms.PasswordInput)
-    name = forms.CharField(label='name')
-    birth = forms.DateField(label='birth')
-    email = forms.EmailField(label='email')
-    main_address = forms.CharField(label='main_address')
-    sub_address = forms.CharField(label='sub_address')
-    cellphone = forms.CharField(label='cellular_phone')
-    company_name = forms.CharField(label='company_name')
-    company_depart = forms.CharField(label='company_depart')
-    company_spot = forms.CharField(label='company_spot')
-    created_date = forms.DateTimeField(label='created_date')
-    published_date = forms.DateTimeField(label='published_date')
+    name = forms.CharField(label='이름')
+    birth = forms.DateField(label='생년월일')
+    email = forms.EmailField(label='이메일')
+    main_address = forms.CharField(label='주소_01')
+    sub_address = forms.CharField(label='주소_02')
+    cellphone = forms.CharField(label='휴대폰번호')
+    company_name = forms.CharField(label='회사명')
+    company_depart = forms.CharField(label='부서')
+    company_spot = forms.CharField(label='직급')
+    created_date = forms.DateTimeField(label='가입일')
+    published_date = forms.DateTimeField(label='생성일')
 
     def clean_repeat_password(self):
         cd = self.cleaned_data
