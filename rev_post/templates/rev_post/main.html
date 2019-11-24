@@ -1,5 +1,5 @@
 {% block content %}
-<form action="/rev_post/result/" method="POST">
+<form action="/rev_post/result" method="POST">
 {% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="전송하기">
