@@ -7,6 +7,8 @@ from django.views.generic.detail import DetailView
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password, check_password
+import requests
+from django import forms
 
 # 회원가입시 입력 리스트
 ##name = models.CharField(max_length=200)
@@ -45,7 +47,6 @@ def RegisterStart(request):
 
 def RegisterSuccess(request):
     register_lists = Register.objects.filter(published_date__lte = timezone.now()).order_by('-published_date')[:1]
-    #register_lists = Register.objects.all()
     return render(request, 'Accounts/register_success.html', {'register_lists':register_lists})
 
 
