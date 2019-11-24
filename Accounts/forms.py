@@ -14,8 +14,6 @@ class RegisterForm(forms.ModelForm):
     company_name = forms.CharField(label='회사명')
     company_depart = forms.CharField(label='부서')
     company_spot = forms.CharField(label='직급')
-    created_date = forms.DateTimeField(label='가입일')
-    published_date = forms.DateTimeField(label='생성일')
 
     def clean_repeat_password(self):
         cd = self.cleaned_data
