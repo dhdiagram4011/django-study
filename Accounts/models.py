@@ -4,6 +4,7 @@ from django import forms
 
 # 회원가입
 class Register(models.Model):
+    id = models.CharField(max_length=100, primary_key=True)
     name = models.CharField(max_length=200)
     birth = models.DateField('생년월일')
     email = models.EmailField(max_length=200)
@@ -14,7 +15,7 @@ class Register(models.Model):
     company_depart = models.CharField(max_length=200)
     company_spot = models.CharField(max_length=200)
     created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
