@@ -26,7 +26,7 @@ def rev_post_list(request):
     elif request.method == 'POST':
         form = rev_post_list_Form(request.POST)
         posts = form.save()
-        #id = request.POST.get('id',None)
+        id = request.POST.get('id',None)
         email = request.POST.get('email',None)
         created_date = request.POST.get('created_date',None)
         published_date = request.POST.get('published_date',None)
