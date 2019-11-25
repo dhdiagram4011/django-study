@@ -11,20 +11,12 @@ import urllib.request
 from django import forms
 
 
-### input_page
-
-###id = models.CharField(max_length=100, primary_key=True)
-###email = models.EmailField(max_length=300)
-###created_date = models.DateTimeField(default=timezone.now)
-###published_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
-
-
-def rev_post_list(request):
+def reg_user_list(request):
     if request.method == 'GET':
-        form = rev_post_list_Form(request.GET)
+        form = reg_user_list_Form(request.GET)
         return render(request,'rev_post/main.html', {'form':form})
     elif request.method == 'POST':
-        form = rev_post_list_Form(request.POST)
+        form = reg_user_list_Form(request.POST)
         posts = form.save()
         id = request.POST.get('id',None)
         email = request.POST.get('email',None)
@@ -33,14 +25,8 @@ def rev_post_list(request):
     return redirect ('rev_post_result')
 
 
-def rev_post_result(request):
-    rev_post_lists = rev_post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')[:1]
+def reg_user_result(request):
+    reg_user_lists = reg_user.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')[:1]
     #rev_post_lists = rev_post.objects.all()
-    print(rev_post_list)
-    return render(request, 'rev_post/main_result.html', {'rev_post_lists':rev_post_lists})
-
-
-
-
-
-
+    print(reg_user_list)
+    return render(request, 'reg_user/main_result.html', {'reg_user_lists':reg_user_lists})

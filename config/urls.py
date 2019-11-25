@@ -9,7 +9,6 @@ from django.views.static import serve
 
 admin.site.site_header = 'Reservation Ticketing System'
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('Accounts.urls')),
@@ -20,4 +19,5 @@ urlpatterns = [
     path('ticket/', include('Ticketing.urls')),
 #    path('e_ticket/',include('EmailTicket.urls')),
     path('rev_post/',include('rev_post.urls')),
+    path('reg_user/',include('reg_user.urls')),
 ]

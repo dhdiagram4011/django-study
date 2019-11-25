@@ -1,0 +1,5 @@
+{% for reg_user_list in reg_user_lists %}
+
+ID | {{ reg_user_list.id }} - EMAIL : {{ reg_user_list.email }}<br>
+계정생성일 | {{ reg_user_list.created_date }} - {{ reg_user_list.published_date }}<br>
+{% endfor %}
