@@ -25,7 +25,7 @@ def rev_post_list(request):
         return render(request,'rev_post/main.html', {'form':form})
     elif request.method == 'POST':
         form = rev_post_list_Form(request.POST)
-        posts = form.save()
+        post = form.save()
         id = request.POST.get('id',None)
         email = request.POST.get('email',None)
         created_date = request.POST.get('created_date',None)
@@ -34,10 +34,10 @@ def rev_post_list(request):
 
 
 def rev_post_result(request):
-    rev_post_lists = rev_post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')[:1]
+    rev_posts = rev_post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')[:1]
     #rev_post_lists = rev_post.objects.all()
-    print(rev_post_lists)
-    return render(request, 'rev_post/main_result.html', {'rev_post_lists':rev_post_lists})
+    print(rev_posts)
+    return render(request, 'rev_post/main_result.html', {'rev_posts':rev_posts})
 
 
 

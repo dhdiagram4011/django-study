@@ -1,6 +1,6 @@
-{% for rev_post_list in rev_post_lists %}
+{% for rev_post in rev_posts %}
 
-ID | {{ rev_post_list.id }} - EMAIL : {{ rev_post_list.email }}<br>
-계정생성일 | {{ rev_post_list.created_date }} - {{ rev_post_list.published_date }}<br>
+ID | {{ rev_post.id }} - EMAIL : {{ rev_post.email }}<br>
+계정생성일 | {{ rev_post.created_date }} - {{ rev_post.published_date }}<br>
 {% endfor %}
 
