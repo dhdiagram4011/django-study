@@ -22,7 +22,7 @@ def reg_user_list(request):
         email = request.POST.get('email',None)
         created_date = request.POST.get('created_date',None)
         published_date = request.POST.get('published_date',None)
-    return redirect ('rev_post_result')
+    return redirect ('reg_user_result')
 
 
 def reg_user_result(request):
