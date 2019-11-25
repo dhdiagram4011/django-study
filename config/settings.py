@@ -94,13 +94,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME':'ATSDEV',
+        'NAME':'ATS',
         'USER':'dhdiagram',
         'PASSWORD':'k20504003',
-        'HOST': 'atsdev.c0hryaktyqa9.ap-northeast-2.rds.amazonaws.com',
-        'PORT':'5432',
+        'HOST': 'ats.c0hryaktyqa9.ap-northeast-2.rds.amazonaws.com',
+        'PORT':'3306',
     }
 }
 
