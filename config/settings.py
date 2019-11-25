@@ -96,10 +96,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME':'ATS',
+        'NAME':'ATS01',
         'USER':'dhdiagram',
         'PASSWORD':'k20504003',
-        'HOST': 'ats.c0hryaktyqa9.ap-northeast-2.rds.amazonaws.com',
+        'HOST': 'ats01.c0hryaktyqa9.ap-northeast-2.rds.amazonaws.com',
         'PORT':'3306',
     }
 }
