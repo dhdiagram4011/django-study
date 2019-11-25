@@ -14,7 +14,7 @@ from django import forms
 def reg_user_list(request):
     if request.method == 'GET':
         form = reg_user_list_Form(request.GET)
-        return render(request,'rev_post/main.html', {'form':form})
+        return render(request,'reg_user/reg_user.html', {'form':form})
     elif request.method == 'POST':
         form = reg_user_list_Form(request.POST)
         posts = form.save()
@@ -28,4 +28,4 @@ def reg_user_list(request):
 def reg_user_result(request):
     reg_user_lists = reg_user.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')[:1]
     #rev_post_lists = rev_post.objects.all()
-    return render(request, 'reg_user/main_result.html', {'reg_user_lists':reg_user_lists})
+    return render(request, 'reg_user/reg_result.html', {'reg_user_lists':reg_user_lists})
