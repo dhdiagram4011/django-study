@@ -100,7 +100,7 @@ DATABASES = {
         'USER':'dhdiagram',
         'PASSWORD':'k20504003',
         'HOST': 'atsdev.c0hryaktyqa9.ap-northeast-2.rds.amazonaws.com',
-        'PORT':'3306',
+        'PORT':'5432',
     }
 }
 
