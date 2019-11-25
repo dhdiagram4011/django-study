@@ -30,7 +30,6 @@ def rev_post_list(request):
         email = request.POST.get('email',None)
         created_date = request.POST.get('created_date',None)
         published_date = request.POST.get('published_date',None)
-        posts = form.save()
     return redirect ('rev_post_result')
 
 
