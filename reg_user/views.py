@@ -22,10 +22,11 @@ def reg_user_list(request):
         email = request.POST.get('email',None)
         created_date = request.POST.get('created_date',None)
         published_date = request.POST.get('published_date',None)
-    return redirect ('reg_user_result')
+    return redirect('reg_user_result')
 
 
 def reg_user_result(request):
     reg_user_lists = reg_user.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')[:1]
+    print(reg_user_lists)
     #rev_post_lists = rev_post.objects.all()
     return render(request, 'reg_user/reg_result.html', {'reg_user_lists':reg_user_lists})
