@@ -22,7 +22,7 @@ from xhtml2pdf import pisa
 from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse
-from cgi import escape
+#from cgi import escape
 from django.template.response import TemplateResponse
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
