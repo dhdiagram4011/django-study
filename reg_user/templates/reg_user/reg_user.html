@@ -2,6 +2,6 @@
 <form action="/rev_user/result" method="POST">
 {% csrf_token %}
 {{ form.as_p }}
-<input type="submit" value="전송하기">
+<button type="submit" value="전송하기"></button>
 </form>
 {% endblock %}
