@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'airline_cousrse_search',
     'rev_post',
     'reg_user',
+    'knox',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,9 @@ EMAIL_HOST_PASSWORD = '08425256@kdh' # ex) P@ssw0rd
 SERVER_EMAIL = 'rlaehgud21764011@gmail.com' # ex) bum752@gmail.com
 DEFAULT_FROM_MAIL = 'rlaehgud21764011' # ex) bum752
 
+#for rest-knox api
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS' : 'rest_framework.pagination,LimitOffsetPagination',
+    'PAGE_SIZE' : 10,
+    'DEFAULT_AUTHENTICATION_CLASSES' : ('knox.auth.TokenAuthentication',),
+}
