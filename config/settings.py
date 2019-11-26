@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'airline_cousrse_search',
     'rev_post',
     'reg_user',
+    'rest_framework',
     'knox',
 ]
 
