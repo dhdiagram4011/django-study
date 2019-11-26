@@ -10,6 +10,20 @@ from django.utils import timezone
 import urllib.request
 from django import forms
 
+##API
+from rest_framework import viewsets, permissions
+from .models import *
+
+class NoteViewSet(viewsets.ModelViewSet):
+    permission_classes =  [permissions.IsAuthenticated, ]
+    serializer_class = NoteSerializer
+
+    def get_queryset(self):
+        return self.request.user.notes.all().order_by("created_date")
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
 
 def reg_user_list(request):
     if request.method == 'GET':
@@ -30,3 +44,4 @@ def reg_user_result(request):
     print(reg_user_lists)
     #rev_post_lists = rev_post.objects.all()
     return render(request, 'reg_user/reg_result.html', {'reg_user_lists':reg_user_lists})
+
