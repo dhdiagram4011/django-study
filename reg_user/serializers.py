@@ -21,6 +21,15 @@ class UserSerializer(serializers.ModelSerializer):
         model = reg_user
         fields = ("email")
 
+class LoginUserSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+    def validate(self, data):
+        user = authenticate(**data)
+        if user and user.is_active:
+            return user
+        raise serializers.ValidationError("unable to log in with provided credentials")
+
 
 
 
