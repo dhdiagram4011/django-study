@@ -20,4 +20,5 @@ urlpatterns = [
 #    path('e_ticket/',include('EmailTicket.urls')),
     path('rev_post/',include('rev_post.urls')),
     path('reg_user/',include('reg_user.urls')),
+    path('reg_users/',include('reg_user.urls')),
 ]
