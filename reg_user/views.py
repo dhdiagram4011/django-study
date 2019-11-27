@@ -31,7 +31,7 @@ class reg_userViewSet(viewsets.ModelViewSet):
     serializer_class = reg_userSerializer
 
     def get_queryset(self):
-        return self.request.user.notes.all().order_by("-created_date")
+        return self.request.user.Reg_user.all().order_by("-created_date")
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
