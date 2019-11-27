@@ -10,7 +10,7 @@ from django.utils import timezone
 import urllib.request
 from django import forms
 from rest_framework.response import Response
-from rest_framework import viewsets, permissions, generics
+from rest_framework import viewsets, permissions, generics, status
 
 from .serializers import (
     reg_userSerializer,
@@ -29,7 +29,7 @@ class reg_userViewSet(viewsets.ModelViewSet):
     serializer_class = reg_userSerializer
 
     def get_queryset(self):
-        return self.request.user.notes.all().order_by("created_date")
+        return self.request.user.notes.all().order_by("-created_date")
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -50,7 +50,7 @@ class RegistraionAPI(generics.GenericAPIView):
                 "user" : UserSerializer(
                     user, context=self.get_serializer_context()
                 ).data,
-                "token" : AuthToken.objects.create(user),
+                "token" : AuthToken.objects.create(user)[1],
             }
         )
 

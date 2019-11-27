@@ -159,7 +159,7 @@ DEFAULT_FROM_MAIL = 'rlaehgud21764011' # ex) bum752
 
 #for rest-knox api
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS' : 'rest_framework.pagination,LimitOffsetPagination',
+    'DEFAULT_PAGINATION_CLASS' : 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE' : 10,
     'DEFAULT_AUTHENTICATION_CLASSES' : ('knox.auth.TokenAuthentication',),
 }

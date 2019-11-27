@@ -8,7 +8,7 @@ class reg_user(models.Model):
     email = models.EmailField(max_length=300)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
-    owner = models.ForeignKey(User, related_name="notes", on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey(User, related_name="Reg_user", on_delete=models.CASCADE, null=True)
 
     def published(self):
         self.published_date = timezone.now()
