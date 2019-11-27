@@ -13,6 +13,10 @@ from rest_framework.response import Response
 from rest_framework import viewsets, permissions, generics, status
 from rest_framework.views import APIView
 
+from django.conf.urls import url, include
+from django.contrib.auth.models import User
+from rest_framework import routers, serializers, viewsets
+
 from .serializers import (
     reg_userSerializer,
     CreateUserSerializer,
@@ -78,6 +82,25 @@ class UserAPI(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+### NEW
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['url','username','email','is_staff']
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+
+
+
+
+
 
 def reg_user_list(request):
     if request.method == 'GET':
