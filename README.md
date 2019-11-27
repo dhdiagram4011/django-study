@@ -64,6 +64,11 @@ http://localhost:8001/e_ticket/send_ticket/
 http://localhost:8001/rev_post/main/
 
 
+8. 회원가입 / 로그인 API
+http://localhost:8001/reg_user/auth/register
+http://localhost:8001/reg_user/auth/login
+
+
 
 
 
