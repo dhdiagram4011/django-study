@@ -15,4 +15,5 @@ urlpatterns = [
     path('auth/register/', RegistraionAPI.as_view()),
     path('auth/login/', LoginAPI.as_view()),
     path('auth/user/', UserAPI.as_view()),
+    path('api-auth/',include(router.urls)),
 ]
