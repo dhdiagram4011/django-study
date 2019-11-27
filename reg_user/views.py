@@ -11,6 +11,7 @@ import urllib.request
 from django import forms
 from rest_framework.response import Response
 from rest_framework import viewsets, permissions, generics, status
+from rest_framework.views import APIView
 
 from .serializers import (
     reg_userSerializer,
@@ -19,6 +20,7 @@ from .serializers import (
     LoginUserSerializer,
 )
 from knox.models import AuthToken
+from knox.auth import TokenAuthentication
 
 ##API
 from rest_framework import viewsets, permissions
@@ -39,7 +41,7 @@ class RegistraionAPI(generics.GenericAPIView):
     serializer_class = CreateUserSerializer
 
     def post(self, request, *args, **kwargs):
-        if len(request.data["email"] < 6):
+        if len(request.data["username"]) < 6 or len(request.data["password"]) < 4:
             body = {"message" : "short field"}
             return Response(body, status=status.HTTP_400_BAD_REQUEST)
         serializer = self.get_serializer(data=request.data)
@@ -50,7 +52,7 @@ class RegistraionAPI(generics.GenericAPIView):
                 "user" : UserSerializer(
                     user, context=self.get_serializer_context()
                 ).data,
-                "token" : AuthToken.objects.create(user)[1],
+                "token" : AuthToken.objects.create(user),
             }
         )
 

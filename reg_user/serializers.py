@@ -11,12 +11,12 @@ class reg_userSerializer(serializers.ModelSerializer):
 class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("email")
-        extra_kwargs = {"email": {"write_only": True}}
+        fields = ("id","username","password")
+        extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_date):
         user = User.objects.create_user(
-            validated_date["email"], None
+            validated_date["username"], None, validated_date["password"]
         )
         return user
 
@@ -24,7 +24,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("email")
+        fields = ("id","username")
 
 class LoginUserSerializer(serializers.Serializer):
     email = serializers.EmailField()
