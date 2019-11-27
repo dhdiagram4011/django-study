@@ -67,7 +67,7 @@ http://localhost:8001/rev_post/main/
 8. 회원가입 / 로그인 API
 http://localhost:8001/reg_user/auth/register
 http://localhost:8001/reg_user/auth/login
-
+http://localhost:8000/api-auth/login/?next=/reg_user/api-auth/
 
 
 
