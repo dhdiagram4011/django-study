@@ -18,5 +18,6 @@ print(test2) #펑션 테스트를 출력했다
 
 test2("hello world 2")
 
+
 #test2를 실행하는 상태의 context는 메인이다
 
