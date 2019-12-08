@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rev_post',
     'reg_user',
     'rest_framework',
+    'reservationapi',
 ]
 
 MIDDLEWARE = [
@@ -87,24 +88,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME':'ATS',
-        'USER':'dhdiagram',
-        'PASSWORD':'k20504003',
-        'HOST': 'ats.c0hryaktyqa9.ap-northeast-2.rds.amazonaws.com',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#        'NAME':'ATS',
+#        'USER':'dhdiagram',
+#        'PASSWORD':'k20504003',
+#        'HOST': 'ats.c0hryaktyqa9.ap-northeast-2.rds.amazonaws.com',
+#        'PORT':'3306',
+#    }
+#}
 
 
 # Password validation
@@ -156,15 +157,8 @@ EMAIL_HOST_PASSWORD = '08425256@kdh' # ex) P@ssw0rd
 SERVER_EMAIL = 'rlaehgud21764011@gmail.com' # ex) bum752@gmail.com
 DEFAULT_FROM_MAIL = 'rlaehgud21764011' # ex) bum752
 
-#for rest-knox api
-#REST_FRAMEWORK = {
-#    'DEFAULT_PAGINATION_CLASS' : 'rest_framework.pagination.LimitOffsetPagination',
-#    'PAGE_SIZE' : 10,
-#    'DEFAULT_AUTHENTICATION_CLASSES' : ('knox.auth.TokenAuthentication',),
-#}
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    'DEFAULT_PAGINATION_CLASS' : 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE' : 10,
 }
