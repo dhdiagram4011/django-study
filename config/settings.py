@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'rev_post',
     'reg_user',
     'rest_framework',
-    'knox',
 ]
 
 MIDDLEWARE = [
