@@ -6,7 +6,7 @@ from reservationapi import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
-router.register(r'group', views.GroupViewSet)
+router.register(r'groups', views.GroupViewSet)
 
 
 admin.site.site_header = 'Reservation Ticketing System'
