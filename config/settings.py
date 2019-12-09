@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'airline_cousrse_search',
     'rev_post',
     'rest_framework',
-    'reservationapi',
+    'AirlineReservationApp',
 ]
 
 MIDDLEWARE = [
