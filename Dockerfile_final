@@ -1,0 +1,16 @@
+FROM centos:7
+RUN mkdir -p /opt/app/
+WORKDIR /opt/app
+RUN yum install git -y
+RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+RUN yum install -y python36u python36u-devel python36u-libs python36u-pip
+RUN git clone -b dev https://github.com/dhdiagram4011/django-study.git
+RUN pip3 install -r /opt/app/django-study/requirements.txt
+RUN pip3 install -r /opt/app/django-study/airline-reservation-api/AirlineReservationApi/requirements.txt
+EXPOSE 8000
+EXPOSE 8001
+CMD source /opt/django-study/env/bin/activate
+CMD ["python3","/opt/app/django-study/manage.py","runserver","0.0.0.0:8000"]
+CMD source /opt/django-study/airline-reservation-api/env/bin/activate
+CMD ["python3","/opt/app/django-study/airline-reservation-api/manage.py","runserver","0.0.0.0:8001"]
+
