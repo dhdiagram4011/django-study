@@ -74,7 +74,6 @@ lazy-object-proxy==1.4.2
 Mail==2.1.0
 MarkupSafe==1.1.1
 mccabe==0.6.1
-mysqlclient==1.4.2.post1
 numpy==1.16.4
 oauthlib==3.0.2
 pandas==0.24.2
