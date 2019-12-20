@@ -13,7 +13,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ['url','name']
 
-
+# 회원가입 API
 class RegisterSerializer(serializers.Serializer):
     pk = serializers.ReadOnlyField()
     name = serializers.CharField(max_length=200)
@@ -24,6 +24,16 @@ class RegisterSerializer(serializers.Serializer):
     depart =  serializers.CharField(max_length=200)
     position = serializers.CharField(max_length=200)
 
+#운항스케쥴 API
+class AirscheduleSerializer(serializers.Serializer):
+    pk = serializers.ReadOnlyField()
+    arrival_time = serializers.DateTimeField()
+    departure_time = serializers.DateTimeField()
+    navigation_section = serializers.CharField(max_length=500)
+    operating_time = serializers.CharField(max_length=100)
+    airplane_type = serializers.CharField(max_length=100)
+
+
 def restore_object(self, attrs, instance=None):
     if instance:
         instance.name = attrs.get('name',instance.name)
@@ -33,7 +43,15 @@ def restore_object(self, attrs, instance=None):
         instance.company = attrs.get('company', instance.company)
         instance.depart = attrs.get('depart', instance.depart)
         instance.position = attrs.get('position', instance.position)
+        instance.arrival_time = attrs.get('arrival_time',instance.arrival_time)
+        instance.departure_time = attrs.get('departure_time',instance.departure_time)
+        instance.navigation_time = attrs.get('navigation_time', instance.navigation_time)
+        instance.operating_time = attrs.get('operation_time', instance.operating_time)
+        instance.airplane_type = attrs.get('airplane_type', instance.airplane_type)
         return instance
         return Register(**attrs)
+
+
+
 
 

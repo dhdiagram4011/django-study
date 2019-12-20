@@ -6,8 +6,15 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from .models import Register
-from .serializers import RegisterSerializer
+from .models import *
+from .serializers import *
+
+schedule_created = models.DateTimeField(auto_now_add=True)
+arrival_time = models.DateTimeField(max_length=500)
+departure_time = models.DateTimeField(max_length=500)
+navigation_section = models.CharField(max_length=100)
+operating_time = models.CharField(max_length=100)
+airplane_type = models.CharField(max_length=100)
 
 
 class JSONResponse(HttpResponse):
@@ -19,6 +26,13 @@ class JSONResponse(HttpResponse):
         company = JSONRenderer().render(data)
         depart = JSONRenderer().render(data)
         position = JSONRenderer().render(data)
+        arrival_time = JSONRenderer().render(data)
+        departure_time = JSONRenderer().render(data)
+        navigation_section = JSONRenderer().render(data)
+        operating_time = JSONRenderer().render(data)
+        airplane_type = JSONRenderer().render(data)
+
+
         kwargs['content_type'] = 'application/json'
         super(JSONResponse,self).__init__(name, **kwargs)
 
@@ -26,8 +40,8 @@ class JSONResponse(HttpResponse):
 def register_list(request):
     if request.method == "GET":
         AirlineReservationApi = Register.objects.all()
-        serialzer = RegisterSerializer(AirlineReservationApi, many=True)
-        return JSONResponse(serialzer.data)
+        serializer = RegisterSerializer(AirlineReservationApi, many=True)
+        return JSONResponse(serializer.data)
     elif request.method == 'POST':
         data = JSONRenderer().parse(request)
         serializer = RegisterSerializer(data = data)
@@ -36,6 +50,22 @@ def register_list(request):
             return JSONResponse(serializer.data, status=201)
         else:
             return JSONResponse(serializer.errors, status=400)
+
+
+@csrf_exempt
+def schedule_list(request):
+    if request.method == 'GET':
+        AirlineReservationApi = Airschedule.objects.all()
+        serializer = AirscheduleSerializer(AirlineReservationApi, many=True)
+        return JSONResponse(serializer.data)
+    elif request.method == 'POST':
+        data = JSONRenderer().parse(request)
+        serializer = AirscheduleSerializer(data = data)
+        if serializer.is_valid():
+            serializer.save()
+            return JSONResponse(serializer.data, status = 201)
+        else:
+            return JSONResponse(serializer.errors, status = 400)
 
 
 @csrf_exempt
@@ -58,6 +88,30 @@ def register_detail(request,pk):
     elif request.method == 'DELETE':
         AirlineReservationApi.delete()
         return HttpResponse(status = 204)
+
+
+@csrf_exempt
+def schedule_detail(request,pk):
+    try:
+        AirlineReservationApi = Airschedule.objects.get(pk=pk)
+    except Airschedule.DoesNotExist:
+        return HttpResponse(status = 404)
+    if request.method == 'GET':
+        serializer = AirscheduleSerializer(AirlineReservationApi)
+        return JSONResponse(serializers.data)
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = AirscheduleSerializer(AirlineReservationApi, data = data)
+        if serializer.is_valid():
+            serializer.save()
+            return JSONResponse(serializer.data)
+        else:
+            return JSONResponse(serializer.errors, status=400)
+    elif request.method == 'DELETE':
+        AirlineReservationApi.delete()
+        return HttpResponse(status = 204)
+
+
 
 
 class UserViewSet(viewsets.ModelViewSet):
