@@ -9,16 +9,10 @@ from rest_framework.parsers import JSONParser
 from .models import *
 from .serializers import *
 
-schedule_created = models.DateTimeField(auto_now_add=True)
-arrival_time = models.DateTimeField(max_length=500)
-departure_time = models.DateTimeField(max_length=500)
-navigation_section = models.CharField(max_length=100)
-operating_time = models.CharField(max_length=100)
-airplane_type = models.CharField(max_length=100)
-
 
 class JSONResponse(HttpResponse):
     def __init__(self, data, **kwargs):
+        register_created = JSONRenderer().render(data)
         name = JSONRenderer().render(data)
         password = JSONRenderer().render(data)
         main_address = JSONRenderer().render(data)
@@ -26,6 +20,7 @@ class JSONResponse(HttpResponse):
         company = JSONRenderer().render(data)
         depart = JSONRenderer().render(data)
         position = JSONRenderer().render(data)
+        schedule_created = JSONRenderer().render(data)
         arrival_time = JSONRenderer().render(data)
         departure_time = JSONRenderer().render(data)
         navigation_section = JSONRenderer().render(data)
@@ -75,7 +70,7 @@ def register_detail(request,pk):
     except Register.DoesNotExist:
         return HttpResponse(status = 404)
     if request.method == 'GET':
-        serializer  = RegisterSerializer(AirlineReservationApi)
+        serializer = RegisterSerializer(AirlineReservationApi)
         return JSONResponse(serializer.data)
     elif request.method == 'PUT':
         data = JSONParser().parse(request)
@@ -98,7 +93,7 @@ def schedule_detail(request,pk):
         return HttpResponse(status = 404)
     if request.method == 'GET':
         serializer = AirscheduleSerializer(AirlineReservationApi)
-        return JSONResponse(serializers.data)
+        return JSONResponse(serializer.data)
     elif request.method == 'PUT':
         data = JSONParser().parse(request)
         serializer = AirscheduleSerializer(AirlineReservationApi, data = data)
