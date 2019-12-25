@@ -10,7 +10,7 @@ router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('webmaster/', admin.site.urls),
     path('',include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('user/', register_list, name='register_list'),
