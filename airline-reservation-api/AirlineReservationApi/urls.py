@@ -12,7 +12,12 @@ router.register(r'groups', GroupViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('', index, name=index),
+=======
+    ###path('',include(router.urls)),
+    path('', index, name='index'),
+>>>>>>> master
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('user/', register_list, name='register_list'),
     path('user_list/<int:pk>', register_detail, name='register_detail'),
