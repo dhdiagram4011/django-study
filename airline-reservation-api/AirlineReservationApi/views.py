@@ -9,6 +9,11 @@ from rest_framework.parsers import JSONParser
 from .models import *
 from .serializers import *
 
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("html webpage TEST!!!")
+
 
 class JSONResponse(HttpResponse):
     def __init__(self, data, **kwargs):
