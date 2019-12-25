@@ -43,12 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Accounts',
     'airline_reservation',
-    'coupon',
     'EmailTicket',
     'register',
-    'Ticketing',
     'airline_cousrse_search',
-    'rev_post',
     'rest_framework',
     'airline-reservation-api',
 ]
