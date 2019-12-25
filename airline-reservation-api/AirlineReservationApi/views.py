@@ -8,6 +8,10 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from .models import *
 from .serializers import *
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("API WEB PAGE TEST!!!")
 
 
 class JSONResponse(HttpResponse):
