@@ -21,7 +21,6 @@ def index(request):
 
 
 
-
 class JSONResponse(HttpResponse):
     def __init__(self, data, **kwargs):
         register_created = JSONRenderer().render(data)

@@ -13,10 +13,7 @@ urlpatterns = [
     path('reservation/',include('airline_reservation.urls')),
     path('reservation_start/', include('airline_cousrse_search.urls')),
     path('agreement/', include('register.urls')),
-<<<<<<< HEAD
     #####path('ticket/', include('Ticketing.urls')),
     #####path('e_ticket/',include('EmailTicket.urls')),
     #####path('rev_post/',include('rev_post.urls')),
-=======
->>>>>>> master
 ]
