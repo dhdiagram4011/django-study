@@ -9,15 +9,11 @@ from .models import *
 from .serializers import *
 from django.http import HttpResponse
 
-def index(request):
-    return HttpResponse("API WEB PAGE TEST!!!")
-
-from django.http import HttpResponse
 
 ### 안내패이지
 def index(request):
-    #return HttpResponse("html webpage TEST!!!")
-    return render(request, 'AirlineReservationApi/readme.html')
+    return HttpResponse(request, "html webpage TEST!!!")
+    #return render(request, 'AirlineReservationApi/readme.html')
 
 
 
