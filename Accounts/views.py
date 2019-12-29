@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password, check_password
 import requests
 from django import forms
+from django.http import HttpResponse
 
 # 회원가입시 입력 리스트
 ##name = models.CharField(max_length=200)
@@ -22,6 +23,10 @@ from django import forms
 ##company_spot = models.CharField(max_length=200)
 ##created_date = models.DateTimeField(default=timezone.now)
 ##published_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
+
+def index(request):
+    return render(request, 'Accounts/readme.html')
+
 
 def RegisterStart(request):
     if request.method == 'GET':

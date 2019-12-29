@@ -12,7 +12,7 @@ from django.http import HttpResponse
 
 ### 안내패이지
 def index(request):
-    return HttpResponse(request, "html webpage TEST!!!")
+    return HttpResponse("html webpage TEST!!!")
     #return render(request, 'AirlineReservationApi/readme.html')
 
 
